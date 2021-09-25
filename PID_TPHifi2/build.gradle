@@ -1,12 +1,17 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.4.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'org.springframework.boot' version '2.5.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
 
 group = 'org.isfce.pid'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+//Encodage en UTF8 pour toutes les compilations (test et production)
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 configurations {
 	compileOnly {
@@ -26,6 +31,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testRuntimeOnly 'org.junit.platform:junit-platform-commons:1.7.2'
 }
 
 test {
