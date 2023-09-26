@@ -2,7 +2,11 @@ package org.isfce.pid.hifi;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope("prototype")
 public class Tuner implements ISource, BeanNameAware, DisposableBean {
 	private String nom;
 
